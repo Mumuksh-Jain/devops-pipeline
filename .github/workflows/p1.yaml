@@ -1,0 +1,16 @@
+name: Practice 1
+on:
+  push: 
+    branches: [main]
+
+jobs:
+  greet:
+    steps:
+      - name: Say hello
+        run: echo "Hello World"
+      - name: Say bye
+        run: echo "Bye World"
+  
+  
+
+    

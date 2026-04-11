@@ -9,4 +9,4 @@ jobs:
       - name: Say hello
         run: echo "Hello $MY_NAME"
     env:
-      MY_NAME:Moksh
+      MY_NAME: Moksh

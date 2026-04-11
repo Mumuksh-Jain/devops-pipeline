@@ -7,4 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Say hello
-        run: echo "Hello from Actions"
+        run: echo "Hello $MY_NAME"
+    env:
+      MY_NAME:Moksh

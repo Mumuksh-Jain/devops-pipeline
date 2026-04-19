@@ -1,0 +1,23 @@
+1. Where must workflow YAML files live in a repo?
+Ans : Inside .github/workflows/ — that exact path, case-sensitive. A file at .github/hello.yml or .workflows/hello.yml is silently ignored by GitHub.
+
+2. What is the difference between a job and a step?
+Ans : A job is a set of steps that runs together on one runner VM. Jobs run in parallel by default. A step is a single unit inside a job — either a shell command (run:) or a pre-built action (uses:). Steps inside a job run sequentially, sharing the same filesystem.
+
+3. Write the minimal YAML to echo 'done' on every push to main.
+Ans : name: CI
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "done"
+
+4. How do you trigger a workflow manually from the GitHub UI?
+Ans : Add workflow_dispatch: to the on: block. Then go to GitHub → Actions tab → select the workflow → click Run workflow (top-right dropdown). Without workflow_dispatch: in the YAML, the button does not appear.
+
+5. What does ubuntu-latest mean as a runner value?
+Ans : ubuntu-latest is a GitHub-hosted runner — a fresh Ubuntu VM spun up by GitHub for each run and discarded after. "Latest" means GitHub picks the current stable Ubuntu LTS. It changes over time, so for reproducibility pin to a specific version like ubuntu-24.04 in production workflows.

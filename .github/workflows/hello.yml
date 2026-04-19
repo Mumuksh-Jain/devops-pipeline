@@ -1,7 +1,8 @@
 name: Hello World
 on:
   push:
-   branches: [main, dev]
+    branches:
+      - main
 jobs:
   greet:
     runs-on: ubuntu-latest
